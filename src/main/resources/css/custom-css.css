@@ -1,0 +1,133 @@
+@CHARSET "ISO-8859-1";
+
+#custom-navbar {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+#custom-navbar li {
+    float: left;
+}
+
+#custom-navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#custom-navbar li a:hover {
+    background-color: green;
+}
+
+.custom-input {
+    height: 35px;
+}
+
+/*
+body{
+	margin:40px 50px 0px 50px;
+
+} */
+
+.body-header {
+    font-size: 14px;
+}
+
+.header-table {
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.header-table td {
+    text-align: center;
+}
+
+.col-1 {
+    width: 30%;
+    float: left;
+    margin: 2% 2% 2% 2%;
+    background-color: #f2eff0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.col-2 {
+    width: 30%;
+    float: left;
+    margin: 2% 1% 2% 1%;
+    background-color: #f2eff0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.col-3 {
+    width: 30%;
+    float: left;
+    margin: 2% 1% 2% 2%;
+    background-color: #f2eff0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-page {
+    font-size: 14px;
+    font-family: Arial;
+    display: block;
+    font-weight: 400;
+    font-size: 11pt;
+    line-height: 20pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+}
+
+/* .card-header{
+	text-align: center;
+	padding-top:2%;
+	margin-bottom: 0px;
+	border-bottom: 1px solid black;
+	font-family: sans-serif;
+	font-weight: bold;
+	background-color:white;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	color:white;
+} */
+/* #34495e */
+.card-table-div {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 10pt;
+    letter-spacing: 0.2pt;
+}
+
+.card-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.card-table tr:hover {
+    background-color: #7f8c9a;
+}
+
+.card-table tr {
+    line-height: 200%;
+}
+
+.card-body {
+    height: 200px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.align-text {
+    text-align: center;
+}

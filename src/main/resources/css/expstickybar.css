@@ -1,0 +1,18 @@
+@CHARSET "ISO-8859-1";
+.expstickybar {
+
+    position: fixed;
+    color: white;
+    padding: 0px;
+    right: 0; /*horizontally center bar in window*/
+    left: 980px; /*horizontally center bar in window*/
+    visibility: hidden;
+    background: #831643;
+    z-index: 10000;
+    width: auto; /*set width of bar to width of entire window*/
+    font-weight: bold;
+}
+
+.expstickybar a {
+    color: white;
+}

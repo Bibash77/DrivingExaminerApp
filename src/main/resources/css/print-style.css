@@ -1,0 +1,30 @@
+@media print {
+	.header {
+		display: none;
+	}
+	@page {
+		size: A4;
+	}
+	.noheadingRepeat {
+		display: table-row-group;
+	}
+	a[href]:after {
+		content: none !important;
+	}
+	html, body {
+		width: 210mm;
+		height: 297mm;
+	}
+	body, page[size="A4"] {
+		margin-top: 5mm;
+	}
+	.p-b-inside-auto {
+		page-break-inside: auto;
+	}
+	.p-b-before-auto {
+		page-break-before: auto;
+	}
+	.p-b-inside-avoid {
+		page-break-inside: avoid;
+	}
+}

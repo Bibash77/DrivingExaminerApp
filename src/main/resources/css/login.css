@@ -1,0 +1,140 @@
+/* 300 */
+
+@font-face {
+    font-family: MuseoSans;
+    src: url(../fonts/museo/MuseoSans-300.otf) format('opentype') ;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: MuseoSans;
+    src: url(../fonts/museo/MuseoSans-300-italic.otf) format('opentype') ;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* 500 */
+
+@font-face {
+    font-family: MuseoSans;
+    src: url(../fonts/museo/MuseoSans-500.otf) format('opentype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: MuseoSans;
+    src: url(../fonts/museo/MuseoSans-500-italic.otf) format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* 700 */
+
+@font-face {
+    font-family: MuseoSans;
+    src: url(../fonts/museo/MuseoSans-700.otf) format('opentype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: MuseoSans;
+    src: url(../fonts/museo/MuseoSans-700-italic.otf) format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+.fonttest {
+    font-size: 20pt;
+    font-family: "MuseoSans";
+    font-weight: 300;
+}
+
+body {
+    background-color: #bfc4cc;
+    text-align: center;
+    margin: 0;
+    font-family: "MuseoSans", Arial, sans-serif !important;
+}
+
+.loginbox {
+   /*  height: 400px; */
+    background-color: #e9e9e9;
+    border-radius: 20px;
+    width: 500px;
+    margin-top: 5% !important;
+    margin: auto;
+
+}
+
+.imelogo {
+    display: block;
+    padding: 20px 0px;
+}
+
+.stripe {
+    border-top: solid 10px #b31410;
+    border-bottom: solid 10px #172957;
+}
+
+/* INPUT */
+
+input {
+    background-color: transparent;
+    padding: 15px 20px !important;
+    font-size: 13pt;
+    color: #172957;
+    border: none;
+    border-top: solid 1px #e5e5e5;
+    transition: 0.2s;
+}
+
+input:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #7e8493;
+
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: #7e8493;
+
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+    color: #7e8493;
+
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: pink;
+}
+
+input:focus::-webkit-input-placeholder {
+    transition: 0.2s;
+    opacity: 0.0;
+}
+
+.btn-signin {
+    border: none;
+    border-radius: 0px 0px 20px 20px;
+    background-color: #284673;
+    width: 100%;
+    color: #fff;
+    /* padding:  12px 0; */
+    padding: 23px 0;
+    font-size: 18pt;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.btn-signin:active {
+    background-color: #24416d;
+}
+
+.copy {
+    /* padding: 50px 0px; */
+    color: #404144;
+    font-size: 9pt;
+}
