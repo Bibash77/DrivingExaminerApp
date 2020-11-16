@@ -29,9 +29,10 @@
     <div class="row">
        <c:forEach items="${userList}" var="user">
            <div class="col-md-4">
-           <div class="card mb-4 shadow-sm text-white bg-info">
+           <div class="card mb-4 shadow-sm border-primary" style="height: 350px">
                <div class="card-header">
-                   <h4 class="my-0 font-weight-normal"></h4>
+                   <img height="100px" alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+
                </div>
                <div class="card-body">
                    <h1 class="card-title pricing-card-title">${user.userName}</h1>
@@ -40,14 +41,13 @@
                        <c:if test="${user.answers == null}"><li><b>User Has Not Taken Exam</b></li></c:if>
                        <c:if test="${user.answers != null}"><li><b>User Has Taken Exam</b></li></c:if>
                    </ul>
-                  <a href="${pageContext.request.contextPath}/exam"><button type="button" class="btn btn-lg btn-block btn-primary">View Answers</button>
-                  </a>    </div>
+                   <c:if test="${user.answers != null && user.userType eq 'USER'}"> <a href="${pageContext.request.contextPath}/exam/${user.id}"><button type="button" class="btn btn-lg btn-block btn-primary">View Answers</button>
+                   </a>    </c:if></div>
            </div>
            </div>
        </c:forEach>
     </div>
 </div>
-
 </body>
 </html>
 <script>

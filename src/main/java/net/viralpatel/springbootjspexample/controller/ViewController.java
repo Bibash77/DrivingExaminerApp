@@ -10,10 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -67,14 +64,21 @@ public class ViewController {
         return "admin-dashboard";
     }
 
-    @GetMapping("/exam")
-    public String takeExam(ModelMap modelMap , @RequestParam String userId) {
-        modelMap.put("userId" , userId);
+    @GetMapping("/exam/{id}")
+    public String takeExam(ModelMap modelMap , @PathVariable String id) {
+        modelMap.put("userId" , id);
         return "exam-form";
     }
 
     @GetMapping("/index")
-    public String logout() {
+    public String logout(HttpServletResponse response) {
+        // clear cookie data
+        Cookie name = new Cookie("username",null);
+        Cookie userId = new Cookie("userId",null);
+        Cookie userType = new Cookie("userType",null);
+        response.addCookie(name);
+        response.addCookie(userId);
+        response.addCookie(userType);
         return "index";
     }
 

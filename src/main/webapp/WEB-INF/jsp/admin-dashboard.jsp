@@ -29,7 +29,7 @@
            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                Add User
            </button>
-           <a href="${pageContext.request.contextPath}/view-answers">
+           <a href="${pageContext.request.contextPath}/view-answers?user.id">
                <button type="button" class="btn btn-danger ml-4">
                    View Answers
                </button>
@@ -44,7 +44,7 @@
     <%--action to be shown if user type is normal user--%>
 <c:if test="${user.userType eq 'USER'}">
        <div class="row d-flex justify-content-center" id="user-block" style="display: none">
-           <a href="${pageContext.request.contextPath}/exam?userId=${user.id}">
+           <a href="${pageContext.request.contextPath}/exam/${user.id}">
            <button type="button" class="btn btn-primary ml-4" href="exam-form.jsp">
                Take Exam
            </button>

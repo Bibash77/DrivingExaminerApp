@@ -25,7 +25,7 @@
         <p class="lead">Below is a question list of driving exam. please Select one correct answer</p>
     </div>
 
-    <div class="row" style="padding-left: 100px">
+    <div class="row" style="padding-left: 100px; background-color: white">
         <div class="col-md-3 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Correct Answers</span>
@@ -45,9 +45,87 @@
                     </div>
                     <h6 class="text-muted">(d) by using brake</h6>
                 </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.3</span>
+                    </div>
+                    <h6 class="text-muted">(c) To get the vehicle slow </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.4</span>
+                    </div>
+                    <h6 class="text-muted">(a) full tank  </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.5</span>
+                    </div>
+                    <h6 class="text-muted">(c) Written exam and trial </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.6</span>
+                    </div>
+                    <h6 class="text-muted">(d) Distillated water  </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.7</span>
+                    </div>
+                    <h6 class="text-muted">(d) All the above  </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.8</span>
+                    </div>
+                    <h6 class="text-muted">(a) Private tempo </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.9</span>
+                    </div>
+                    <h6 class="text-muted">(b) Self starter </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.10</span>
+                    </div>
+                    <h6 class="text-muted">(b) Stop and ready to go  </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.11</span>
+                    </div>
+                    <h6 class="text-muted">(d) All above </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.12</span>
+                    </div>
+                    <h6 class="text-muted">(d) Two rear wheel  </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.13</span>
+                    </div>
+                    <h6 class="text-muted">(d) Side light on left   </h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.14</span>
+                    </div>
+                    <h6 class="text-muted">(d) dept. of transport management</h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <span class="my-0">Qno.15</span>
+                    </div>
+                    <h6 class="text-muted">(d) Suitable gear </h6>
+                </li>
             </ul>
 
-                <li class="list-group-item d-flex justify-content-between">
+                <li class="list-group-item d-flex justify-content-between" id="no-answer">
                     <span>N/A</span>
                     <strong>Answers aren't available</strong>
                 </li>
@@ -571,6 +649,7 @@
                 console.log(data);
                 if(data == null){
                   alert("no previous exam taken !!");
+                    document.getElementById("no-answer").style.display = "block";
 
               } else {
                   const answers = JSON.parse(data.userAnswers);
@@ -583,6 +662,7 @@
                    })
                     document.getElementById("submitButton").style.display = "none";
                     document.getElementById("correct-answer").style.display = "block";
+                    document.getElementById("no-answer").style.display = "none";
               }
             },
 
@@ -615,6 +695,7 @@
         })
         if(!isFormValid){
             alert("please fill all answer");
+            return;
         }
         console.log(data);
         answerModal.userAnswers = JSON.stringify(data);

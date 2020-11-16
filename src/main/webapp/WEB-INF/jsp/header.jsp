@@ -38,6 +38,22 @@
             <a class="p-2 text-dark" href="${pageContext.request.contextPath}/home">Home</a>
             <a class="p-2 text-dark" href="${pageContext.request.contextPath}/index">Logout</a>
         </nav>
-        <a class="btn btn-outline-primary" href="#">Sign up</a>
     </div>
+
+  <%--  <script>
+        $(document).ready(function () {
+            $.ajax({
+                url:"${pageContext.request.contextPath}/user/all-cookies",
+                type:"get",
+                contentType:"application/json",
+                success:function(data){
+                    console.log(data);
+                    if(data == null || data.userId == null){
+                        window.location.href = "/index"
+                    }
+                },
+
+            });
+        })
+    </script>--%>
 </head>
