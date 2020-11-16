@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp"/>
+<input value="${user}" hidden id="sessionUser">
 <%--
   Created by IntelliJ IDEA.
   User: Bibash Bogati
@@ -11,12 +12,10 @@
 <html>
 <head>
     <title>DashBoard</title>
+<%--css--%>
     <style>
         .bg-img {
-            background-image: url("img/img.png");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+            background-color: beige;
         }
     </style>
 </head>
@@ -24,31 +23,41 @@
 <div class="jumbotron text-center bg-img">
     <h1>Nepal Driving Center</h1>
     <p>Build your skill here!</p>
-   <c:if test="${user.userType eq 'ADMIN'}">
-       <div class="row d-flex justify-content-center" >
+    <%--actions button will be shown if user type is administrator--%>
+<c:if test="${user.userType eq 'ADMIN'}">
+       <div class="row d-flex justify-content-center" id="admin-block" style="display:none;">
            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                Add User
            </button>
-           <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#exampleModal">
-               View Answers
-           </button>
-           <button type="button" class="btn btn-danger ml-4" href="${pageContext.request.contextPath}/index">
-              Log Out
-           </button>
+           <a href="${pageContext.request.contextPath}/view-answers">
+               <button type="button" class="btn btn-danger ml-4">
+                   View Answers
+               </button>
+           </a>
+           <a href="${pageContext.request.contextPath}/index">
+               <button type="button" class="btn btn-danger ml-4">
+                   Logout
+               </button>
+           </a>
        </div>
-   </c:if>
-    <c:if test="${user.userType eq 'USER'}">
-       <div class="row d-flex justify-content-center" >
+</c:if>
+    <%--action to be shown if user type is normal user--%>
+<c:if test="${user.userType eq 'USER'}">
+       <div class="row d-flex justify-content-center" id="user-block" style="display: none">
+           <a href="${pageContext.request.contextPath}/exam?userId=${user.id}">
            <button type="button" class="btn btn-primary ml-4" href="exam-form.jsp">
                Take Exam
            </button>
-           <button type="button" class="btn btn-danger ml-4" href="${pageContext.request.contextPath}/">
-              Log Out
-           </button>
+           </a>
+           <a href="${pageContext.request.contextPath}/home">
+               <button type="button" class="btn btn-danger ml-4">
+                   Logout
+               </button>
+           </a>
        </div>
-   </c:if>
+</c:if>
 </div>
-
+<%--content--%>
 <div class="container">
     <div class="row">
         <div class="card">
@@ -67,7 +76,8 @@
 </body>
 </html>
 
-<!-- Modal -->
+<!-- Modal to add user -->
+<%--source: getbootstrap.com--%>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -99,12 +109,34 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveUser" onclick="registerUser()">Save changes</button>
+                <button type="button" class="btn btn-primary" id="saveUser" onclick="registerUser()">Submit</button>
             </div>
         </div>
     </div>
 </div>
 <script>
+    $(document).ready(function () {
+        $.ajax({
+            url:"${pageContext.request.contextPath}/user/all-cookies",
+            type:"get",
+            contentType:"application/json",
+            success:function(data){
+                console.log(data);
+            },
+
+        });
+    })
+</script>
+<script>
+   function checkUsers(){
+       const user = localStorage.getItem("user");
+       if(user.userType === 'ADMIN'){
+           document.getElementById("admin-block").style.display = 'block';
+       } else if(user.userType === 'USER'){
+           document.getElementById("user-block").style.display = 'block';
+       }
+   }
+    // function is triggered on click event of submit button
     function registerUser() {
         console.log(document.getElementById('userName').value);
         var user = {
@@ -129,5 +161,6 @@
         function loadUrl(url) {
             window.location.href = '${pageContext.request.contextPath}/';
         }
+
     }
 </script>

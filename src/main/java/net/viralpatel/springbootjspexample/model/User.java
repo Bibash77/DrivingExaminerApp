@@ -12,8 +12,19 @@ public class User {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
+    public Answers getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(Answers answers) {
+        this.answers = answers;
+    }
+
     @NotNull
     private String userName;
+
+    @OneToOne
+    private Answers answers;
 
     public Long getId() {
         return id;
@@ -50,8 +61,9 @@ public class User {
     @NotNull
     private String password;
 
-    public User(Long id, String userName, String password, UserType userType) {
+    public User(Long id, String userName, String password, UserType userType , Answers answers) {
         this.id = id;
+        this.answers = answers;
         this.userName = userName;
         this.password = password;
         this.userType = userType;

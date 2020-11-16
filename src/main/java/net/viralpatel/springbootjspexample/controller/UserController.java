@@ -7,6 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -33,5 +38,16 @@ public class UserController {
         return ResponseEntity
                 .status(200)
                 .body("successfully saved !!!");
+    }
+
+    @GetMapping ("/all-cookies")
+    public String readCookie (HttpServletRequest request) {
+        Cookie[] cookies=request.getCookies();
+        if (cookies!=null) {
+            return Arrays.stream (cookies)
+                    .map (c->c.getName () + "=" + c.getValue ())
+                    .collect (Collectors.joining (","));
+        }
+        return "no cookies";
     }
 }
