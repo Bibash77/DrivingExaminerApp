@@ -703,16 +703,17 @@
         saveAnswers(answerModal);
     }
 
-    function saveAnswers(answer){
+    function saveAnswers(answer) {
         console.log(answer);
         $.ajax({
-            url:"${pageContext.request.contextPath}/answer/submit",
-            type:"post",
-            contentType:"application/json",
-            data:JSON.stringify(answer),
-            success:function(data){
+            url: "${pageContext.request.contextPath}/answer/submit",
+            type: "post",
+            contentType: "application/json",
+            data: JSON.stringify(answer),
+            success: function (data) {
                 console.log(data);
                 alert(data);
+                window.location.href = '${pageContext.request.contextPath}/home';
             },
 
         });

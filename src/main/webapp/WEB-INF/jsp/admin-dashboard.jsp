@@ -43,18 +43,18 @@
 </c:if>
     <%--action to be shown if user type is normal user--%>
 <c:if test="${user.userType eq 'USER'}">
-       <div class="row d-flex justify-content-center" id="user-block" style="display: none">
-           <a href="${pageContext.request.contextPath}/exam/${user.id}">
-           <button type="button" class="btn btn-primary ml-4" href="exam-form.jsp">
-               Take Exam
-           </button>
-           </a>
-           <a href="${pageContext.request.contextPath}/home">
-               <button type="button" class="btn btn-danger ml-4">
-                   Logout
-               </button>
-           </a>
-       </div>
+    <div class="row d-flex justify-content-center" id="user-block" style="display: none">
+        <a href="${pageContext.request.contextPath}/exam/${user.id}">
+            <button type="button" class="btn btn-primary ml-4" href="exam-form.jsp">
+                Take Exam
+            </button>
+        </a>
+        <a href="${pageContext.request.contextPath}/index">
+            <button type="button" class="btn btn-danger ml-4">
+                Logout
+            </button>
+        </a>
+    </div>
 </c:if>
 </div>
 <%--content--%>

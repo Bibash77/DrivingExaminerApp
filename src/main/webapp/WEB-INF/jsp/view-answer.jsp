@@ -39,7 +39,9 @@
                    <ul class="list-unstyled mt-3 mb-4">
                        <li>User Type: ${user.userType}</li>
                        <c:if test="${user.answers == null}"><li><b>User Has Not Taken Exam</b></li></c:if>
-                       <c:if test="${user.answers != null}"><li><b>User Has Taken Exam</b></li></c:if>
+                       <c:if test="${user.answers != null}">
+                           <li><b>Exam attended.</b></li>
+                       </c:if>
                    </ul>
                    <c:if test="${user.answers != null && user.userType eq 'USER'}"> <a href="${pageContext.request.contextPath}/exam/${user.id}"><button type="button" class="btn btn-lg btn-block btn-primary">View Answers</button>
                    </a>    </c:if></div>

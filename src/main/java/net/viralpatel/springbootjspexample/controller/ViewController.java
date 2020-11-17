@@ -1,21 +1,21 @@
 package net.viralpatel.springbootjspexample.controller;
 
+import net.viralpatel.springbootjspexample.core.UserType;
 import net.viralpatel.springbootjspexample.model.User;
 import net.viralpatel.springbootjspexample.repository.UserRepository;
 import net.viralpatel.springbootjspexample.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,11 +88,14 @@ public class ViewController {
         for (Cookie cookie : httpServletRequest.getCookies()) {
             cookieMap.put(cookie.getName(), cookie);
         }
-        if(ObjectUtils.isEmpty(cookieMap)){
+        if (ObjectUtils.isEmpty(cookieMap)) {
             return "index";
         }
-
-        modelMap.put("user" , cookieMap);
+        User user = new User();
+        user.setUserType(UserType.valueOf(cookieMap.get("userType").getValue()));
+        user.setId(Long.valueOf(cookieMap.get("userId").getValue()));
+        user.setUserName(cookieMap.get("username").getValue());
+        modelMap.put("user", user);
         return "admin-dashboard";
     }
 
