@@ -125,23 +125,25 @@
                 </li>
             </ul>
 
-                <li class="list-group-item d-flex justify-content-between" id="no-answer">
-                    <span>N/A</span>
-                    <strong>Answers aren't available</strong>
-                </li>
+            <li class="list-group-item d-flex justify-content-between" id="no-answer">
+                <span>N/A</span>
+                <strong>Answers aren't available</strong>
+            </li>
         </div>
 
-        <div class="col-md-9" style="border: double; overflow: scroll">
+        <div class="col-md-9" id="questions" style="border: double; overflow: scroll">
             <h4 class="mb-3 text-center p-0">Driving Exam</h4>
-                <div class="row mb-2">
-                    <div class="col-md-12 mb-3">
-                        <label >1.Motor and Transport Management is under which ministry?</label>
-                        <div class="d-block my-3">
-                            <div class="custom-control custom-radio">
-                                <input  id="ministryOfLabourTransport" name="paymentMethod" type="radio" class="custom-control-input" value="a. Construction and ministry of transport" required>
-                                <label class="custom-control-label d-inline-flex" for="ministryOfLabourTransport">
-                                    a. Construction and ministry of transport
-                                </label>
+            <div class="row mb-2">
+                <div class="col-md-12 mb-3">
+                    <label>1.Motor and Transport Management is under which ministry?</label>
+                    <div class="d-block my-3">
+                        <div class="custom-control custom-radio">
+                            <input id="ministryOfLabourTransport" name="paymentMethod" type="radio"
+                                   class="custom-control-input" value="a. Construction and ministry of transport"
+                                   required>
+                            <label class="custom-control-label d-inline-flex" for="ministryOfLabourTransport">
+                                a. Construction and ministry of transport
+                            </label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input  name="paymentMethod" type="radio" value=" b.Ministry of labour and transport management" class="custom-control-input" id="ministryOfLabour">
@@ -651,19 +653,20 @@
                   alert("no previous exam taken !!");
                     document.getElementById("no-answer").style.display = "block";
 
-              } else {
-                  const answers = JSON.parse(data.userAnswers);
-                   ids.forEach(dataKey => {
-                       const ele = document.getElementsByName(dataKey);
-                       for(let i = 0; i < ele.length; i++) {
-                           if(ele[i].value === answers[dataKey])
-                              ele[i].checked = true;
-                       }
-                   })
+                } else {
+                    const answers = JSON.parse(data.userAnswers);
+                    ids.forEach(dataKey => {
+                        const ele = document.getElementsByName(dataKey);
+                        for (let i = 0; i < ele.length; i++) {
+                            if (ele[i].value === answers[dataKey])
+                                ele[i].checked = true;
+                        }
+                    })
+                    $("#questions :input").attr("disabled", true);
                     document.getElementById("submitButton").style.display = "none";
                     document.getElementById("correct-answer").style.display = "block";
                     document.getElementById("no-answer").style.display = "none";
-              }
+                }
             },
 
         });
