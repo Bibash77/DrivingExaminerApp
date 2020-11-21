@@ -160,7 +160,7 @@
                             <div class="custom-control custom-radio">
                                 <input  name="paymentMethod" type="radio" class="custom-control-input" id="allAnswer" value="d. all of the above">
                                 <label class="custom-control-label d-inline-flex" for="allAnswer">
-                                    d. all of the above  ( ans : no c )
+                                    d. all of the above
                                 </label>
                             </div>
                         </div>
@@ -346,7 +346,7 @@
                             <div class="custom-control custom-radio">
                                 <input id="allLicenseApplyMethod" name="licenseApplyMethod" value="d. All the above" type="radio" class="custom-control-input" required>
                                 <label class="custom-control-label d-inline-flex" for="allLicenseApplyMethod">
-                                    d. All the above ( ans no d )
+                                    d. All the above
                                 </label>
                             </div>
                         </div>
