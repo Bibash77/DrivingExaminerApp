@@ -128,14 +128,6 @@
     })
 </script>
 <script>
-   function checkUsers(){
-       const user = localStorage.getItem("user");
-       if(user.userType === 'ADMIN'){
-           document.getElementById("admin-block").style.display = 'block';
-       } else if(user.userType === 'USER'){
-           document.getElementById("user-block").style.display = 'block';
-       }
-   }
     // function is triggered on click event of submit button
     function registerUser() {
         console.log(document.getElementById('userName').value);

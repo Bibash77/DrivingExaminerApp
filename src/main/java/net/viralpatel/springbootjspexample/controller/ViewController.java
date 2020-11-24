@@ -86,7 +86,8 @@ public class ViewController {
     public String home(HttpServletRequest httpServletRequest , ModelMap modelMap) {
         Map<String, Cookie> cookieMap = new HashMap<>();
         for (Cookie cookie : httpServletRequest.getCookies()) {
-            cookieMap.put(cookie.getName(), cookie);
+            if (!ObjectUtils.isEmpty(cookie.getValue()))
+                cookieMap.put(cookie.getName(), cookie);
         }
         if (ObjectUtils.isEmpty(cookieMap)) {
             return "index";

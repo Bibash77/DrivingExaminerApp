@@ -3,7 +3,6 @@ package net.viralpatel.springbootjspexample.controller;
 
 import net.viralpatel.springbootjspexample.model.User;
 import net.viralpatel.springbootjspexample.repository.UserRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +18,7 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @PostMapping("/register")
     public ResponseEntity<?>  register(@RequestBody User user){
@@ -40,6 +39,7 @@ public class UserController {
                 .body("successfully saved !!!");
     }
 
+    //source: https://dzone.com/articles/how-to-use-cookies-in-spring-boot
     @GetMapping ("/all-cookies")
     public String readCookie (HttpServletRequest request) {
         Cookie[] cookies=request.getCookies();
